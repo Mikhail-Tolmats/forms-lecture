@@ -1,0 +1,118 @@
+
+
+<details>
+    <summary>Bind input to variable.</summary>
+    <div>
+        <fieldset>
+            <legend>Simple binding</legend>
+            <div class="flex">
+                <code>&lt;input class="form-control" name="title" [(ngModel)]="simpleNgModelValue"  required /&gt;</code>
+                <input class="form-control" name="title" [(ngModel)]="simpleNgModelValue"  required />
+            </div>
+            <p>Value is dynamic: <span class="value">{{ simpleNgModelValue }}</span></p>
+        </fieldset>
+    </div>
+</details>
+
+<details>
+    <summary>Reference to input through ngModel</summary>
+    <div>
+        <fieldset>
+            <legend>Model reference and properties.</legend>
+            <div class="flex">
+                <code>&lt;input class="form-control" name="title" ngModel required #InputReference="ngModel"//&gt;</code>
+                <input class="form-control" name="title" ngModel required #InputReference="ngModel"/>
+            </div>
+            <div>
+                {{ InputReference.valid }} - InputReference.valid <br>
+                {{ InputReference.status }} - InputReference.status <br>
+                {{ InputReference.touched }} - InputReference.touched <br>
+                {{ InputReference.dirty }} - InputReference.dirty <br>
+                {{ InputReference.model }} - InputReference.model <br>
+            </div>
+        </fieldset>
+    </div>
+</details>
+
+<details>
+    <summary>Basic form</summary>
+    <div>
+        <fieldset>
+            <legend>Example</legend>
+            <div class="flex">
+                <form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)">
+                    <div>
+                        <input class="form-control" name="name"  #name="ngModel" ngModel required />
+                    </div>
+                    {{ name.errors | json  }}
+                    <div>
+                        <input type="password" name="password" #password="ngModel" ngModel required minlength="3">
+                    </div>
+                    {{ password.errors | json  }}
+                    <br>
+                    <input type="submit" value="Submit!" [disabled]="myForm.invalid">
+                </form>
+
+                <code>
+                    <pre>
+                        &lt;form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)"&gt;
+                            &lt;div&gt;
+                                &lt;input
+                                    name="name"
+                                    #name="ngModel"
+                                    ngModel
+                                    required/&gt;
+                            &lt;/div&gt;
+                            &lt;div&gt;
+                                &lt;input
+                                    type="password"
+                                    name="password"
+                                    #password="ngModel"
+                                    ngModel
+                                    required
+                                    minlength="3"&gt;
+                            &lt;/div&gt;
+                            &lt;input type="submit" value="Submit!" [disabled]="myForm.invalid"&gt;
+                        &lt;/form&gt;
+                    </pre>
+                </code>
+            </div>
+        </fieldset>
+    </div>
+</details>
+
+
+<details>
+    <summary>Form with custom validation</summary>
+    <div>
+        <fieldset>
+            <legend>Example</legend>
+            <div class="flex">
+                <form #formWithCustomValidaton="ngForm" (ngSubmit)="onSubmit(formWithCustomValidaton)">
+                    <div>
+                        <input type="text" name="numVal" ngModel #numVal="ngModel" lectCustomPasswordValidator> 
+                    </div>
+                    {{ numVal.errors | json  }}
+                    <input type="submit" value="Submit!" [disabled]="myForm.invalid">
+                </form>
+                <code>
+                    <pre>
+                        &lt;form
+                            #formWithCustomValidaton="ngForm"
+                            (ngSubmit)="onSubmit(formWithCustomValidaton)"&gt;
+                            &lt;div&gt;
+                                &lt;input
+                                    type="text"
+                                    name="numVal"
+                                    ngModel
+                                    #numVal="ngModel"
+                                    lectCustomPasswordValidator&gt; 
+                            &lt;/div&gt;
+                            &lt;input type="submit" value="Submit!" [disabled]="myForm.invalid"&gt;
+                        &lt;/form>
+                    </pre>
+                </code>
+            </div>
+        </fieldset>
+    </div>
+</details>

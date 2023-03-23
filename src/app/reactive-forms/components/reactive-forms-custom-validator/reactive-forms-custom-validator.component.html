@@ -1,0 +1,46 @@
+<h2>Custom sync validation (customSyncValidatedForm form)</h2>
+
+
+<div class="flex">
+    <form [formGroup]="customSyncValidatedForm" (ngSubmit)="onSubmitBuiltInValidationForm()">
+        <label for="login">Input login</label>
+        <input type="text" formControlName="login" id="login">
+        <code>
+            {{ customSyncValidatedForm.controls["login"].errors | json }}
+        </code>
+        <label for="password">Input password</label>
+        <input type="password" formControlName="password" id="password">
+        <code>
+            {{ customSyncValidatedForm.controls["password"].errors | json }}
+        </code>
+        <button type="submit" [disabled]="customSyncValidatedForm.invalid">Submit form</button>
+    </form>
+    <div>
+        <h3>Validation rules:</h3>
+        <ul>
+            <li>
+                Login:
+                <ul>
+                    <li>
+                        EdgeSpacesValidator (no spaces in the end)
+                    </li>
+                    <li>
+                        + Required
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Password:
+                <ul>
+                    <li>
+                        PasswordCustomValidator<br>
+                        Forbidden value: <code style="margin: 0; padding: 0; display: inline"> {{ forBiddenPassword }}</code>
+                    </li>
+                    <li>
+                        + Required
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

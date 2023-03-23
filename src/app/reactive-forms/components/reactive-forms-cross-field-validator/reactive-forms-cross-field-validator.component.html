@@ -1,0 +1,37 @@
+<h2>Custom Cross Field validation</h2>
+
+
+<div class="flex">
+    <form [formGroup]="crossFieldValidationForm" (ngSubmit)="onSubmitBuiltInValidationForm()">
+        <label for="login">Input login</label>
+        <input type="text" formControlName="login" id="login">
+        <code>
+            {{ crossFieldValidationForm.controls["login"].errors | json }}
+        </code>
+        <label for="password">Input Password</label>
+        <input type="text" formControlName="password" id="password">
+        <code>
+            {{ crossFieldValidationForm.controls["password"].errors | json }}
+        </code>
+        <button type="submit" [disabled]="crossFieldValidationForm.invalid">Submit form</button>
+
+        <code>
+            {{ crossFieldValidationForm.errors | json }}
+        </code>
+    </form>
+    <div>
+        <h3>Validation rules:</h3>
+        <ul>
+            <li>
+                Form:
+                <ul>
+                    <li>
+                        Password != Login
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+

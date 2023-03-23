@@ -1,0 +1,35 @@
+<h3>Native Forms Overview</h3>
+
+<section class="flex">
+    <aside>
+        <pre>
+            <code [innerHTML]="visibleFormCode"></code>
+        </pre>
+    </aside>
+    <aside>
+        <form action="" method="get">
+            <div>
+                <label for="name">Enter your name: </label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div>
+                <label for="email">Enter your email: </label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div>
+                <label for="email">Enter your date of birth: </label>
+                <input type="date" name="date" id="date">
+            </div>
+            <div>
+                <input type="submit" value="Subscribe!">
+            </div>
+        </form>
+    </aside>
+</section>
+<h3>Usefull links.</h3>
+
+<ul>
+    <li *ngFor="let usefullLink of usefullLinks; trackBy: trackByFn">
+        <a [href]="usefullLink.url" target="_blank">{{ usefullLink.title }}</a>
+    </li>
+</ul>

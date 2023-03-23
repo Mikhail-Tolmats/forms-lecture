@@ -1,0 +1,102 @@
+<h3>Tags overview</h3>
+
+<details *ngFor="let tag of tags">
+    <summary [innerText]="tag.tagName">
+        {{ tag.tagName }}
+    </summary>
+    <div>
+        <ng-container *ngTemplateOutlet="tagSamples; context: { tag: tag }"></ng-container>
+    </div>
+</details>
+
+<ng-template #tagSamples let-tag="tag">
+    <ng-container [ngSwitch]="tag.tagName">
+        <ng-container *ngSwitchCase="'input'">
+            <div *ngFor="let input of tag.innerData" class="tag--input-element">
+                <label for="{{input.type}}">{{ input.type }}</label>
+                <input [type]="input.type" id="{{input.type}}" [value]="input.value || null" [src]="input.src || null">
+            </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'label'">
+            <p>Label is next to input. id + for</p>
+            <div class="preference" style="border: 1px solid white;">
+                <label for="inputId">Click to select</label>
+                <input type="checkbox" name="cheese" id="inputId">
+            </div>
+            <p>Label wraps input.</p>
+            <div class="preference" style="border: 1px solid white;">
+                <label>
+                    Click to select
+                    <input type="checkbox" name="peas">
+                </label>
+            </div>
+        </ng-container>
+        <textarea *ngSwitchCase="'textarea'" rows="5" cols="33">It was a dark and stormy night...</textarea>
+        <ng-container *ngSwitchCase="'button'">
+            <div *ngFor="let button of tag.innerData">
+                <button [type]="button.type">{{ button.type }}</button>
+            </div>
+        </ng-container>
+
+        <select name="" id="" *ngSwitchCase="'select/option'">
+            <option value="option" *ngFor="let option of tag.innerData">{{ option }}</option>
+        </select>
+
+        <select id="dino-select" *ngSwitchCase="'optgroup'">
+            <optgroup label="Theropods">
+                <option>Tyrannosaurus</option>
+                <option>Velociraptor</option>
+                <option>Deinonychus</option>
+            </optgroup>
+            <optgroup label="Sauropods">
+                <option>Diplodocus</option>
+                <option>Saltasaurus</option>
+                <option>Apatosaurus</option>
+            </optgroup>
+        </select>
+
+        <fieldset *ngSwitchCase="'fieldset/legend'">
+            <legend>Choose your favorite monster</legend>
+            <label for="kraken">
+                <p>
+                    Kraken
+                </p>
+                <input type="radio" id="kraken" name="monster" value="K">
+            </label>
+            <label for="sasquatch">
+                <p>
+                    Sasquatch
+                </p>
+                <input type="radio" id="sasquatch" name="monster" value="S">
+            </label>
+            <label for="mothman">
+                <p>
+                    Mothman
+                </p>
+                <input type="radio" id="mothman" name="monster" value="M" />
+            </label>
+        </fieldset>
+    </ng-container>
+</ng-template>
+
+
+<details>
+    <summary>Additional native tags</summary>
+    <p>
+        <input id="meter_slider" type="range" (input)="onInputChange(meterSlider.value)" min="0" max="100" #meterSlider [value]="meterSliderValue">
+        Tag METER <br>
+        <meter id="meter_bar" [value]="meterSliderValue" min="0" max="100" low="30" high="55" optimum="100"></meter><br>
+        Tag OUTPUT <br>
+        <output id="meter_output" for="meter_slider">{{meterSliderValue}}</output><br>
+        Tag PROGRESS<br>
+        <progress max="100" [value]="meterSliderValue"> {{meterSliderValue}}% </progress>
+    </p>
+</details>
+
+
+
+<h3>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/button" target="_blank">
+        MDN link to all inputs
+    </a>
+</h3>

@@ -1,0 +1,43 @@
+<h2>Custom Async validation (customSyncValidatedForm form)</h2>
+
+
+<div class="flex">
+    <form [formGroup]="customSyncValidatedForm" (ngSubmit)="onSubmitBuiltInValidationForm()">
+        <label for="login">Input login</label>
+        <input type="text" formControlName="login" id="login">
+        <code>
+            {{ customSyncValidatedForm.controls["login"].errors | json }}
+        </code>
+        <button type="submit" [disabled]="customSyncValidatedForm.invalid">Submit form</button>
+        <button type="button" (click)="showStatus = !showStatus">Show Form status</button>
+        <code *ngIf="showStatus">{{ customSyncValidatedForm.status }}</code>
+    </form>
+    <div>
+        <h3>Validation rules:</h3>
+        <ul>
+            <li>
+                Login:
+                <ul>
+                    <li>
+                        EdgeSpacesValidator (no spaces in the end)
+                    </li>
+                    <li>
+                        + Required
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Password:
+                <ul>
+                    <li>
+                        ForbiddenNamesValidator<br>
+                        Forbidden values: <code style="margin: 0; padding: 0; display: inline"> "admin", "superadmin", "Vasya"</code>
+                    </li>
+                    <li>
+                        + Required
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

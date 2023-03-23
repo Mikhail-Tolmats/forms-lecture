@@ -1,0 +1,43 @@
+details {
+    padding: 10px 0;
+    border-bottom: 1px solid white;
+}
+
+summary {
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+div {
+    padding: 30px;
+}
+
+.tag--input-element {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid white;
+    max-width: 700px;
+    margin: 0 auto;
+
+    label {
+        display: block;
+        width: 300px;
+    }
+}
+
+button {
+    background-color: lightblue;
+    min-width: 200px;
+}
+
+fieldset {
+    label {
+        display: flex;
+        align-items: center;
+    }
+    p {
+        width: 150px;
+    }
+}

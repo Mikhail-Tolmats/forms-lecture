@@ -1,0 +1,14 @@
+<div>
+    <h2>Reactive approach. Single input example.</h2>
+    <div style="margin: 0 auto; max-width: 700px;">
+        <input type="text" [formControl]="standAloneInput">
+        <br>
+        <div>
+            Value output with <b>standAloneInput.value</b> {{ standAloneInput.value }} <br>
+            Value output with <b>standAloneInput.valueChanges | async</b> - {{ standAloneInput.valueChanges | async }}
+        </div>
+        <br>
+
+        <button (click)="setStandloneInputValue()">Set value</button>
+    </div>
+</div>

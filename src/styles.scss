@@ -1,1 +1,84 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --dark-blue: #112158;
+    --bright-green: #00f957;
+    --white: #fff;
+}
+
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-blue);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--white);
+}
+
+input, button, textarea, select, option, code, label, summary {
+    display: block;
+    padding: 5px;
+    color: black;
+    margin-bottom: 10px;
+    font-size: 18px;
+    line-height: 1.5;
+    width: 100%;
+    cursor: pointer;
+}
+
+label {
+    color: white;
+}
+
+code {
+    color: var(--bright-green);
+}
+
+summary {
+    color: white;
+}
+
+button {
+    background-image: linear-gradient(to right, #314755 0%, #26a0da  51%, #314755  100%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    border-radius: 10px;
+    display: block;
+
+    &:hover:not([disabled]) {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+        background-image: linear-gradient(to right, #314755 0%, #000  51%, #314755  100%);
+    }
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+form {
+    min-width: 600px;
+    padding: 20px;
+    border: 1px solid var(--bright-green);
+}

@@ -1,0 +1,38 @@
+:host {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.agenda--title {
+    font-size: 40px;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 0;
+}
+
+.agenda--sub-title {
+    text-align: center;
+}
+
+.agenda--list {
+    padding: 0 40px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.agenda--main-link {
+    @extend .agenda--title;
+    font-size: 28px;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--bright-green);
+        text-decoration: none;
+    }
+}
+
+.agenda--sub-link {
+    @extend .agenda--main-link;
+    font-size: 20px;;
+}

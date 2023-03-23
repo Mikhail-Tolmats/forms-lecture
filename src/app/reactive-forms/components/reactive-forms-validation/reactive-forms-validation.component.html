@@ -1,0 +1,48 @@
+<h2>Built-in validation (builtInValidtionForm form)</h2>
+
+
+<div class="flex">
+    <form [formGroup]="builtInValidtionForm" (ngSubmit)="onSubmitBuiltInValidationForm()">
+        <label for="login">Input login</label>
+        <input type="text" formControlName="login" id="login">
+        <code>
+            {{ builtInValidtionForm.controls["login"].errors | json }}
+        </code>
+        <label for="password">Input password</label>
+        <input type="password" formControlName="password" id="password">
+        <code>
+            {{ builtInValidtionForm.controls["password"].errors | json }}
+        </code>
+        <button type="submit">Submit form</button>
+    </form>
+    <div>
+        <h3>Validation rules:</h3>
+        <ul>
+            <li>
+                Login:
+                <ul>
+                    <li>
+                        Validators.required
+                    </li>
+                    <li>
+                        Validators.minLength(2)
+                    </li>
+                    <li>
+                        Validators.pattern('[A-Z ]*')
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Password:
+                <ul>
+                    <li>
+                        Validators.required
+                    </li>
+                    <li>
+                        Validators.minLength(3)
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

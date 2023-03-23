@@ -1,0 +1,21 @@
+<div class="flex" style="justify-content: space-around; align-items: center; height: 100vh;">
+    <fieldset>
+        <legend>new FormGroup(...)</legend>
+        <form [formGroup]="simpleFormGroup">
+            <input type="text" formControlName="login"><br>
+            <input type="password" formControlName="password"><br>
+            <button>Submit</button>
+        </form>
+    </fieldset>
+
+    <fieldset>
+        <legend>
+            FormBuilder.group(...)
+        </legend>
+        <form [formGroup]="simpleFormbuilderGroup">
+            <input type="text" formControlName="login"><br>
+            <input type="password" formControlName="password"><br>
+            <button>Submit</button>
+        </form>
+    </fieldset>
+</div>

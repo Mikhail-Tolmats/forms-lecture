@@ -1,0 +1,15 @@
+<h1 class="agenda--title">Forms</h1>
+<h2 class="agenda--sub-title">Agenda</h2>
+
+<ul class="agenda--list">
+    <li *ngFor="let agendaItem of agendaElements; trackBy: trackByFn">
+        <a [routerLink]="agendaItem.url" class="agenda--main-link">
+            {{ agendaItem.title }}
+        </a>
+        <ul *ngIf="agendaItem.subcategories?.length">
+            <li *ngFor="let subCategory of agendaItem.subcategories; trackBy: trackByFn">
+                <a [routerLink]="subCategory.url" class="agenda--sub-link">{{ subCategory.title }}</a>
+            </li>
+        </ul>
+    </li>
+</ul>

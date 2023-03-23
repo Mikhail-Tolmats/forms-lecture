@@ -1,0 +1,33 @@
+<fieldset class="flex">
+    <legend>
+        Nested form group.
+    </legend>
+    <form [formGroup]="nestedForm" (ngSubmit)="submitNestedForm()" style="border: 1px solid green; padding: 20px;">
+        <input type="text" formControlName="name" placeholder="Name"><br>
+        <input type="text" formControlName="sureName" placeholder="Sure name"><br>
+        <fieldset *ngIf="skills.controls.length" style="margin-bottom: 20px;">
+            <legend>Skills</legend>
+            <div>
+                <ng-container formArrayName="skills">
+                    <ng-container *ngFor="let toolControl of skills.controls; index as i;" [formGroupName]="i">
+                        <div class="skill-wrapper">
+                            <input type="text" formControlName="skillValue" placeholder="{{i + 1}} Skill">
+                            <button (click)="deleteSkill(i)" type="button">Delete skill</button>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+            <br>
+        </fieldset>
+        <div formGroupName="publicInfo">
+            <input type="text" formControlName="address" placeholder="Address"><br>
+            <input type="tel" formControlName="phoneNumber" placeholder="Phone"><br>
+        </div>
+        <button type="submit">Submit Form</button>
+    </form>
+    <div>
+        <button type="button" (click)="setValueToNestedForm()">Set prepared value to form.</button>
+        <br>
+        <button type="button" (click)="addSkill()">Add skill.</button>
+    </div>
+</fieldset>
