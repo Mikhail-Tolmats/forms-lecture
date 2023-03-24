@@ -25,7 +25,7 @@ export class ReactiveFormsCrossFieldValidatorComponent implements OnInit {
         const isDynamicValidationEnabled = false;
         this.enableDynamicValidation(isDynamicValidationEnabled);
 
-        // this.crossFieldValidationForm.get("login")?.disable(); // To show that this addds disabled attribute
+        // this.crossFieldValidationForm.get("login")?.disable(); // To show that this adds disabled attribute
     }
 
     public onSubmitBuiltInValidationForm(): void {

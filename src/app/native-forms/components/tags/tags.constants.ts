@@ -18,9 +18,6 @@ export const tags = [
                 value : "2023-07-22"
             },
             {
-                type : "datetime",
-            },
-            {
                 type : "datetime-local",
                 value: "2023-06-12T19:30"
             },
@@ -54,13 +51,15 @@ export const tags = [
                 type : "range"
             },
             {
-                type : "reset"
+                type : "reset",
+                value: "Reset",
             },
             {
                 type : "search"
             },
             {
-                type : "submit"
+                type : "submit",
+                value: "submit",
             },
             {
                 type : "tel"

@@ -14,7 +14,12 @@
         <ng-container *ngSwitchCase="'input'">
             <div *ngFor="let input of tag.innerData" class="tag--input-element">
                 <label for="{{input.type}}">{{ input.type }}</label>
-                <input [type]="input.type" id="{{input.type}}" [value]="input.value || null" [src]="input.src || null">
+                <ng-container *ngIf="input.type !== 'image'; else imageInput">
+                    <input [type]="input.type" id="{{input.type}}" [value]="input.value || null">
+                </ng-container>
+                <ng-template #imageInput>
+                    <input [type]="input.type" id="{{input.type}}" [src]="input.src" style="width: 100px; border: 1px solid white;">
+                </ng-template>
             </div>
         </ng-container>
         <ng-container *ngSwitchCase="'label'">

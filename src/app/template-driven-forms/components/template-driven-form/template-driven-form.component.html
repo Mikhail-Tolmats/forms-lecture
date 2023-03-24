@@ -55,7 +55,10 @@
 
                 <code>
                     <pre>
-                        &lt;form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)"&gt;
+                        &lt;form
+                            #myForm="ngForm"
+                            novalidate
+                            (ngSubmit)="onSubmit(myForm)"&gt;
                             &lt;div&gt;
                                 &lt;input
                                     name="name"
@@ -72,7 +75,10 @@
                                     required
                                     minlength="3"&gt;
                             &lt;/div&gt;
-                            &lt;input type="submit" value="Submit!" [disabled]="myForm.invalid"&gt;
+                            &lt;input
+                                type="submit"
+                                value="Submit!"
+                                [disabled]="myForm.invalid"&gt;
                         &lt;/form&gt;
                     </pre>
                 </code>
